@@ -9,8 +9,14 @@ const resolvers = {
     games: () => db.games,
     reviews: () => db.reviews,
     authors: () => db.authors,
-    review(parent, args) {
+    review(_, args) {
       return db.reviews.find((user) => user.id === args.id);
+    },
+    game(_, args) {
+      return db.games.find((game) => game.id === args.id);
+    },
+    author(_, args) {
+      return db.authors.find((author) => author.id === args.id);
     },
   },
 };
